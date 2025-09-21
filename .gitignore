@@ -1,0 +1,90 @@
+# Node
+node_modules/
+# Lockfiles devem ser versionados (npm/yarn/pnpm)
+
+# Logs
+logs/
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data / PIDs
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+*.lcov
+.nyc_output/
+
+# Build output / caches
+.dist/
+dist/
+build/
+out/
+.tmp/
+tmp/
+.temp/
+temp/
+.cache/
+.eslintcache
+
+# TypeScript
+*.tsbuildinfo
+
+# Tooling caches
+.ts-node/
+
+# Source maps gerados em builds
+dist/**/*.map
+build/**/*.map
+out/**/*.map
+
+# Ambiente / segredos
+.env
+.env.*
+!.env.example
+!.env.sample
+.envrc
+.direnv
+
+# Keys and credentials (security)
+service-account-key.json
+*.pem
+*.key
+*.crt
+*.pfx
+
+# Banco de dados local
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Editor e IDEs
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea/
+*.iml
+.history/
+
+# SO (Windows / macOS)
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# Misc
+*.swp
+*.swm
