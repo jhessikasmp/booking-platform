@@ -7,6 +7,8 @@ import appointmentRoutes from './routes/appointments';
 import paymentRoutes from './routes/payments';
 import { errorHandler } from './middleware/error.middleware';
 import { logger } from './utils/logger';
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsdoc, { Options as SwaggerOptions } from 'swagger-jsdoc';
 
 const app = express();
 
@@ -19,6 +21,36 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
+
+// Swagger (OpenAPI)
+const swaggerOptions: SwaggerOptions = {
+  definition: {
+    openapi: '3.0.3',
+    info: {
+      title: 'Booking Platform API',
+      version: '1.0.0',
+      description: 'API de agendamentos, usuários, profissionais e pagamentos'
+    },
+    servers: [
+      { url: `http://localhost:${process.env.PORT || 3000}/api` }
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT'
+        }
+      }
+    },
+    security: [{ bearerAuth: [] }]
+  },
+  apis: [
+    './src/routes/*.ts',
+  ]
+};
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);

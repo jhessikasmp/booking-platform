@@ -256,5 +256,5 @@ Render provides SSL, scaling, and global CDN for static assets (if any).
 MIT — see `LICENSE` (add one if not present).
 
 ## Contact
-For questions or suggestions, please contact: your-email@example.com
+For questions or suggestions, please contact: jhessika.smp@gmail.com
 # booking-platform
