@@ -24,7 +24,8 @@ export class Availability {
 
   static async findByProfessional(professionalId: number): Promise<IAvailability[]> {
     const res = await pool.query<IAvailability>(
-      `SELECT * FROM availability WHERE professional_id = $1 AND is_available = true ORDER BY day_of_week, start_time`,
+      `SELECT * FROM availability WHERE professional_id = $1 AND is_available = true 
+      ORDER BY day_of_week, start_time`,
       [professionalId]
     );
     return res.rows;

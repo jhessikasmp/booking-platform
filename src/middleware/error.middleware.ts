@@ -1,9 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { logger } from '../utils/logger';
 
-/**
- * Global middleware to catch unhandled errors.
- */
 export function errorHandler(
   err: Error,
   _req: Request,

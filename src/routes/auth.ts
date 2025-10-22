@@ -6,7 +6,7 @@ const router = Router();
  * @openapi
  * /auth/register:
  *   post:
- *     summary: Registrar novo usuário
+ *     summary: Register a new user
  *     tags: [Auth]
  *     requestBody:
  *       required: true
@@ -29,16 +29,16 @@ const router = Router();
  *                 example: secret123
  *     responses:
  *       201:
- *         description: Usuário registrado
+ *         description: User registered
  *       400:
- *         description: Erro de validação
+ *         description: Validation error
  */
 router.post('/register',AuthController.register);
 /**
  * @openapi
  * /auth/login:
  *   post:
- *     summary: Login do usuário
+ *     summary: User login
  *     tags: [Auth]
  *     requestBody:
  *       required: true
@@ -58,9 +58,9 @@ router.post('/register',AuthController.register);
  *                 example: secret123
  *     responses:
  *       200:
- *         description: Autenticado com sucesso
+ *         description: Authenticated successfully
  *       401:
- *         description: Credenciais inválidas
+ *         description: Invalid credentials
  */
 router.post('/login',AuthController.login);
 

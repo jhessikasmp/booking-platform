@@ -7,15 +7,15 @@ const router = Router();
  * @openapi
  * /users/me:
  *   get:
- *     summary: Retorna perfil do usuário autenticado
+ *     summary: Get authenticated user profile
  *     tags: [Users]
  *     security:
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: Perfil do usuário
+ *         description: User profile
  *       401:
- *         description: Não autorizado
+ *         description: Unauthorized
  */
 router.get('/me', auth, UserController.profile);
 

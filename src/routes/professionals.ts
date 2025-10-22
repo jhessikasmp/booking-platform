@@ -7,22 +7,22 @@ const router = Router();
  * @openapi
  * /professionals:
  *   get:
- *     summary: Lista profissionais
+ *     summary: List professionals
  *     tags: [Professionals]
  *     security:
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: Lista de profissionais
+ *         description: List of professionals
  *       401:
- *         description: Não autorizado
+ *         description: Unauthorized
  */
 router.get('/', auth, ProfessionalController.list);
 /**
  * @openapi
  * /professionals/{id}/availability:
  *   get:
- *     summary: Consulta disponibilidade do profissional
+ *     summary: Get professional availability
  *     tags: [Professionals]
  *     security:
  *       - bearerAuth: []
@@ -34,16 +34,16 @@ router.get('/', auth, ProfessionalController.list);
  *           type: integer
  *     responses:
  *       200:
- *         description: Disponibilidade
+ *         description: Availability
  *       401:
- *         description: Não autorizado
+ *         description: Unauthorized
  */
 router.get('/:id/availability', auth, ProfessionalController.getAvailability);
 /**
  * @openapi
  * /professionals/{id}/availability:
  *   post:
- *     summary: Define disponibilidade do profissional
+ *     summary: Set professional availability
  *     tags: [Professionals]
  *     security:
  *       - bearerAuth: []
@@ -73,9 +73,9 @@ router.get('/:id/availability', auth, ProfessionalController.getAvailability);
  *                       format: date-time
  *     responses:
  *       200:
- *         description: Disponibilidade atualizada
+ *         description: Availability updated
  *       401:
- *         description: Não autorizado
+ *         description: Unauthorized
  */
 router.post('/:id/availability', auth, ProfessionalController.setAvailability);
 

@@ -9,7 +9,7 @@ const router = Router();
  * @openapi
  * /appointments:
  *   post:
- *     summary: Cria um agendamento
+ *     summary: Create an appointment 
  *     tags: [Appointments]
  *     security:
  *       - bearerAuth: []
@@ -32,44 +32,35 @@ const router = Router();
  *                 example: 60
  *     responses:
  *       201:
- *         description: Agendamento criado
+ *         description: Appointment created
  *       400:
- *         description: Erro de validação
+ *         description: Validation error
  *       401:
- *         description: Não autorizado
+ *         description: Unauthorized
  */
-router.post(
-  '/', 
-  auth, 
-  validateAppointment, 
-  AppointmentController.create
-);
+router.post('/', auth, validateAppointment, AppointmentController.create);
 
 /**
  * @openapi
  * /appointments/my:
  *   get:
- *     summary: Lista agendamentos do usuário autenticado
+ *     summary: List authenticated user's appointments
  *     tags: [Appointments]
  *     security:
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: Lista de agendamentos
+ *         description: List of appointments
  *       401:
- *         description: Não autorizado
+ *         description: Unauthorized
  */
-router.get(
-  '/my', 
-  auth, 
-  AppointmentController.myAppointments
-);
+router.get('/my', auth, AppointmentController.myAppointments);
 
 /**
  * @openapi
  * /appointments/{id}/cancel:
  *   put:
- *     summary: Cancela um agendamento
+ *     summary: Cancel an appointment
  *     tags: [Appointments]
  *     security:
  *       - bearerAuth: []
@@ -81,14 +72,10 @@ router.get(
  *           type: integer
  *     responses:
  *       200:
- *         description: Agendamento cancelado
+ *         description: Appointment canceled
  *       401:
- *         description: Não autorizado
+ *         description: Unauthorized
  */
-router.put(
-  '/:id/cancel', 
-  auth, 
-  AppointmentController.cancel
-);
+router.put('/:id/cancel', auth, AppointmentController.cancel);
 
 export default router;

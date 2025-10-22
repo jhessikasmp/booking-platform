@@ -9,8 +9,8 @@ export class PaymentController {
       if (!amount || typeof amount !== 'number' || amount <= 0) {
         return res.status(400).json({ error: 'Invalid amount. Must be a positive number.' });
       }
-      const successUrl = req.body.successUrl || 'https://yoursite.com/success';
-      const cancelUrl = req.body.cancelUrl || 'https://yoursite.com/error';
+      const successUrl = req.body.successUrl;
+      const cancelUrl = req.body.cancelUrl;
       const checkoutUrl = await createCheckoutSession(amount, successUrl, cancelUrl);
       res.json({ checkoutUrl });
     } catch (error: any) {

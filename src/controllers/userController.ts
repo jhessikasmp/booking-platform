@@ -4,7 +4,7 @@ import { logger } from '../utils/logger';
 
 export class UserController {
   static profile(req: AuthReq, res: Response) {
-    logger.info(`Profile acessado: ${req.user!.id}`);
+    logger.info(`Profile accessed: ${req.user!.id}`);
     res.json(req.user);
   }
 }

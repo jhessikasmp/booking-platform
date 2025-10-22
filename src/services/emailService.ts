@@ -16,7 +16,6 @@ const transporter = nodemailer.createTransport({
 export async function sendConfirmation(appt: IAppointment): Promise<void> {
   try {
     const icsContent = generateICS(appt);
-  // Fetch professional data
   let professionalInfo = '';
     try {
       const prof = await Professional.findAll();

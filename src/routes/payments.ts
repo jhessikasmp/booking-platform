@@ -8,7 +8,7 @@ const router = Router();
  * @openapi
  * /payments/create-checkout:
  *   post:
- *     summary: Cria uma sessão de Checkout do Stripe
+ *     summary: Create a Stripe Checkout session
  *     tags: [Payments]
  *     security:
  *       - bearerAuth: []
@@ -24,13 +24,13 @@ const router = Router();
  *                 example: 49.9
  *               successUrl:
  *                 type: string
- *                 example: https://seusite.com/sucesso
+ *                 example: https://yourdomain.com/success
  *               cancelUrl:
  *                 type: string
- *                 example: https://seusite.com/erro
+ *                 example: https://yourdomain.com/cancel
  *     responses:
  *       200:
- *         description: URL de checkout criada
+ *         description: Checkout URL created
  *         content:
  *           application/json:
  *             schema:
@@ -39,9 +39,9 @@ const router = Router();
  *                 checkoutUrl:
  *                   type: string
  *       400:
- *         description: Requisição inválida
+ *         description: Invalid request
  *       500:
- *         description: Erro interno
+ *         description: Internal server error
  */
 // Create simplified checkout session
 router.post('/create-checkout', auth, PaymentController.createCheckout);

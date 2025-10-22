@@ -12,24 +12,21 @@ import swaggerJsdoc, { Options as SwaggerOptions } from 'swagger-jsdoc';
 
 const app = express();
 
-// CORS configuration (development-friendly)
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production'
-    ? ['https://yourdomain.com'] // Replace with your domain
-    : ['http://localhost:3000', 'http://localhost:3001'], // For development
+    ? ['http://localhost:3000'] : ['http://localhost:3001'],
   credentials: true
 };
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Swagger (OpenAPI)
 const swaggerOptions: SwaggerOptions = {
   definition: {
     openapi: '3.0.3',
     info: {
       title: 'Booking Platform API',
       version: '1.0.0',
-      description: 'API de agendamentos, usuários, profissionais e pagamentos'
+  description: 'API for appointments, users, professionals, and payments'
     },
     servers: [
       { url: `http://localhost:${process.env.PORT || 3000}/api` }
@@ -45,9 +42,8 @@ const swaggerOptions: SwaggerOptions = {
     },
     security: [{ bearerAuth: [] }]
   },
-  apis: [
-    './src/routes/*.ts',
-  ]
+  apis: ['./src/routes/*.ts',]
+
 };
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));

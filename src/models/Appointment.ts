@@ -26,7 +26,6 @@ export class Appointment {
   }
 
   static async findConflict(professional_id: number, date: Date): Promise<boolean> {
-    // Check if there is an appointment at the same time
     const res = await pool.query(
       `SELECT 1 FROM appointments
        WHERE professional_id=$1 AND date=$2 AND status='scheduled'`,
@@ -38,9 +37,8 @@ export class Appointment {
       return true;
     }
 
-    // Check if the professional is available on this day/time
-    const dayOfWeek = date.getDay(); // 0=Sunday, 1=Monday, etc.
-    const timeString = date.toTimeString().substring(0, 5); // HH:MM format
+    const dayOfWeek = date.getDay(); 
+    const timeString = date.toTimeString().substring(0, 5);
 
     const availRes = await pool.query(
       `SELECT 1 FROM availability

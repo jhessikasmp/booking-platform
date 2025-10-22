@@ -9,7 +9,6 @@ export class AuthController {
   static async register(req: Request, res: Response) {
     const { name, email, password, phone, role } = req.body;
 
-    // Basic password validation
     if (password.length < 6) {
       return res.status(400).json({ error: 'Password must be at least 6 characters long' });
     }
