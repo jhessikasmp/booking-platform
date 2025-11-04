@@ -23,7 +23,9 @@ export async function sendConfirmation(appt: IAppointment): Promise<void> {
       if (professional) {
         professionalInfo = `- Professional: ${professional.specialty}`;
       }
-    } catch {}
+    } catch {
+      logger.warn(`Could not fetch professional info for appointment ${appt.id}`); 
+    }
 
     await transporter.sendMail({
       from: `Appointments <${env.SMTP_USER}>`,

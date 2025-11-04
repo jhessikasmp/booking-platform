@@ -8,13 +8,14 @@ export class ProfessionalController {
   static async list(req: AuthReq, res: Response) {
     const pros = await Professional.findAll();
   logger.info(`Professionals listed by user ${req.user?.id}`);
-    res.json(pros);
+  res.json(pros);
   }
 
   static async getAvailability(req: AuthReq, res: Response) {
     try {
       const professionalId = Number(req.params.id);
       const availability = await Availability.findByProfessional(professionalId);
+      
       res.json(availability);
     } catch (err: any) {
       logger.error(`Error fetching availability: ${err.message}`);

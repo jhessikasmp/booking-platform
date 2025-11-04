@@ -11,12 +11,12 @@ export class AppointmentController {
       const { client_email,professional_id,date,duration,service } = req.body;
       const apptDate = new Date(date);
 
-      if (await Appointment.findConflict(professional_id,apptDate)) {
+      if (await Appointment.findConflict(professional_id, apptDate)) {
         return res.status(400).json({ error:'Time slot unavailable' });
       }
 
       const appt = await Appointment.create({
-        client_email,professional_id,date:apptDate,duration,service
+        client_email, professional_id, date: apptDate, duration, service
       });
 
   await sendConfirmation(appt);

@@ -4,10 +4,6 @@ import { logger } from '../utils/logger';
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY, { apiVersion: '2022-11-15' });
 
-export async function createPaymentIntent(amount: number): Promise<string> {
-  throw new Error('Use Stripe Checkout. PaymentIntent support was removed.');
-}
-
 export async function createCheckoutSession(amount: number, successUrl: string, cancelUrl: string): Promise<string> {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],

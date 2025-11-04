@@ -12,6 +12,7 @@ export class PaymentController {
       const successUrl = req.body.successUrl;
       const cancelUrl = req.body.cancelUrl;
       const checkoutUrl = await createCheckoutSession(amount, successUrl, cancelUrl);
+      
       res.json({ checkoutUrl });
     } catch (error: any) {
       logger.error(`Error creating CheckoutSession: ${error.message}`);
