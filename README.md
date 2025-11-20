@@ -252,9 +252,6 @@ Render provides SSL, scaling, and global CDN for static assets (if any).
 ## Documentation
 - Swagger/OpenAPI: not set up yet. You can add `swagger-ui-express` and an OpenAPI spec to expose docs at `/api-docs`.
 
-## License
-MIT — see `LICENSE` (add one if not present).
 
 ## Contact
 For questions or suggestions, please contact: jhessika.smp@gmail.com
-# booking-platform
